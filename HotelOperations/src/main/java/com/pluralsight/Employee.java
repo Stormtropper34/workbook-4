@@ -32,23 +32,5 @@ public class Employee {
     public void setHoursWorked(double hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
-    public double getTotalPay() {
-        double regularPay;
-        double overtimePay = 0;
-        if (hoursWorked > 40) {
-            regularPay = 40 * payRate;
-            overtimePay = (hoursWorked - 40) * payRate * 0.5;
-        } else {
-            regularPay = hoursWorked * payRate;
-        }
-        return regularPay + overtimePay;
-    }
 
-    public double getRegularHours() {
-        return Math.min(hoursWorked, 40);
-    }
-
-    public double getOvertimeHours() {
-        return Math.max(0, hoursWorked - 40);
-    }
 }
