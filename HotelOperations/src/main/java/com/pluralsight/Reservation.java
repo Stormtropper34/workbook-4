@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import javax.naming.InvalidNameException;
+
 public class Reservation {
    private String roomType;
    private int numberOfNights = 0;
@@ -16,13 +18,13 @@ public class Reservation {
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
-    public double getPrice() {
+    public double getPrice() throws Exception {
         if (roomType.equalsIgnoreCase("king")) {
             return 139.00;
         } else if (roomType.equalsIgnoreCase("double")) {
             return 124.00;
         } else {
-            return 0.0;
+            throw new InvalidNameException("Invalid room");
         }
     }
     public int getNumberOfNights() {
@@ -34,7 +36,7 @@ public class Reservation {
     public boolean isWeekend() {
         return isWeekend;
     }
-    public double getReservationTotal() {
+    public double getReservationTotal() throws Exception {
         double total = getPrice();
         if (isWeekend) {
             total *= 1.10;

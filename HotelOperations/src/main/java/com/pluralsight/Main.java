@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Room room101 = new Room(1,200,true,true);
         System.out.println(room101.isAvailable());
 
@@ -11,7 +11,7 @@ public class Main {
         Reservation reservation101 = new Reservation("king", 2,true);
         System.out.println(reservation101.getReservationTotal());
 
-        Reservation reservation102 = new Reservation("king", 1, false);
+        Reservation reservation102 = new Reservation("double", 1, false);
         System.out.println(reservation102.getReservationTotal());
 
         Employee employee101 = new Employee(2133, "Alicia" , "Front desk" , 23, 41 );
@@ -26,6 +26,11 @@ public class Main {
         System.out.println("Employee Department: " + employee102.getDepartment());
         System.out.println(employee102.getTotalPay());
 
+        room102.checkIn();
+        System.out.println(room102.isAvailable());
+
+        room102.checkOut();
+        System.out.println(room102.isAvailable());
 
     }
 }
